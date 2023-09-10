@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validador de números Par ou Ímpar</title>
+</head>
+<body>
+    <script>
+        // Solicita um número ao usuário usando o prompt
+        var numero = prompt("Digite um número:");
+
+        // Converte o valor inserido pelo usuário para um número inteiro
+        numero = parseInt(numero);
+
+        // Verifica se o número é par ou ímpar e exibe um alerta correspondente
+        if (isNaN(numero)) {
+            alert("Você não inseriu um número válido.");
+        } else if (numero % 2 === 0) {
+            alert("O número " + numero + " é par.");
+        } else {
+            alert("O número " + numero + " é ímpar.");
+        }
+    </script>
+</body>
+</html>

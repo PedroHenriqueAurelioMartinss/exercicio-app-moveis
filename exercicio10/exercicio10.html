@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Peso em Outro Planeta</title>
+</head>
+<body>
+    <h1>Calculadora de Peso em Outro Planeta</h1>
+
+    <p>Informe seu peso (em kg): <input type="number" id="peso" step="0.01"></p>
+    <p>Escolha um planeta:
+        <select id="planeta">
+            <option value="0.38">Mercúrio</option>
+            <option value="0.91">Vênus</option>
+            <option value="0.38">Marte</option>
+            <option value="2.34">Júpiter</option>
+            <option value="1.06">Saturno</option>
+            <option value="0.92">Urano</option>
+            <option value="1.19">Netuno</option>
+        </select>
+    </p>
+
+    <button onclick="calcularPeso()">Calcular</button>
+
+    <p>O peso em outro planeta é: <span id="resultado"></span> kg</p>
+
+    <script>
+        function calcularPeso() {
+            var peso = parseFloat(document.getElementById('peso').value);
+            var planeta = parseFloat(document.getElementById('planeta').value);
+
+            if (!isNaN(peso) && !isNaN(planeta)) {
+                var pesoEmOutroPlaneta = peso * planeta;
+                document.getElementById('resultado').textContent = pesoEmOutroPlaneta.toFixed(2);
+            } else {
+                document.getElementById('resultado').textContent = 'Por favor, insira valores válidos.';
+            }
+        }
+    </script>
+</body>
+</html>

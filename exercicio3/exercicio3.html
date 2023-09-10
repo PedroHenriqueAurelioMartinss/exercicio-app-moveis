@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Idade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Idade</h1>
+        <label for="dob">Informe sua data de nascimento:</label>
+        <input type="date" id="dob">
+        <button onclick="calcularIdade()">Calcular Idade</button>
+        <p id="idade"></p>
+    </div>
+
+    <script>
+        function calcularIdade() {
+            const dataNascimento = new Date(document.getElementById("dob").value);
+            const dataAtual = new Date();
+            const diff = Math.abs(dataAtual - dataNascimento);
+            const idade = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25)); // Aproximadamente 365.25 dias por ano
+
+            document.getElementById("idade").textContent = "Sua idade é: " + idade + " anos";
+        }
+    </script>
+</body>
+</html>

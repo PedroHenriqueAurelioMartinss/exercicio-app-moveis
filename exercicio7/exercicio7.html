@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Quadrado</title>
+</head>
+<body>
+    <h1>Calculadora de Quadrado</h1>
+    <p>Informe um número:</p>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button onclick="calcularQuadrado()">Calcular</button>
+    <p>O valor elevado ao quadrado é: <span id="resultado"></span></p>
+
+    <script>
+        function calcularQuadrado() {
+            // Obtenha o valor do campo de entrada
+            var numero = parseFloat(document.getElementById('numero').value);
+
+            // Verifique se o valor é um número válido
+            if (!isNaN(numero)) {
+                // Calcule o valor elevado ao quadrado
+                var resultado = numero * numero;
+
+                // Exiba o resultado na página
+                document.getElementById('resultado').textContent = resultado;
+            } else {
+                // Se o valor não for válido, exiba uma mensagem de erro
+                document.getElementById('resultado').textContent = 'Por favor, insira um número válido.';
+            }
+        }
+    </script>
+</body>
+</html>

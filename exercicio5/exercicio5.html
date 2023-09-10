@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Idade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificador de Idade</h1>
+    <label for="dataNascimento">Informe sua data de nascimento:</label>
+    <input type="date" id="dataNascimento">
+    <button onclick="verificarIdade()">Verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarIdade() {
+            const dataNascimento = new Date(document.getElementById("dataNascimento").value);
+            const hoje = new Date();
+            const idade = hoje.getFullYear() - dataNascimento.getFullYear();
+
+            if (hoje.getMonth() < dataNascimento.getMonth() || (hoje.getMonth() === dataNascimento.getMonth() && hoje.getDate() < dataNascimento.getDate())) {
+                idade--;
+            }
+
+            let resultado = "";
+            if (idade <= 19) {
+                resultado = "Você é jovem.";
+            } else if (idade >= 20 && idade <= 59) {
+                resultado = "Você é adulto.";
+            } else {
+                resultado = "Você é idoso.";
+            }
+
+            document.getElementById("resultado").textContent = resultado;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Maioridade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Verificar Maioridade</h1>
+    <label for="dob">Informe sua data de nascimento:</label>
+    <input type="date" id="dob">
+    <button onclick="verificarMaioridade()">Verificar Maioridade</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarMaioridade() {
+            const dataNascimento = new Date(document.getElementById("dob").value);
+            const dataAtual = new Date();
+            const idade = dataAtual.getFullYear() - dataNascimento.getFullYear();
+
+            // Verifica se já fez aniversário no ano corrente
+            if (
+                dataAtual.getMonth() < dataNascimento.getMonth() ||
+                (dataAtual.getMonth() === dataNascimento.getMonth() &&
+                    dataAtual.getDate() < dataNascimento.getDate())
+            ) {
+                idade--;
+            }
+
+            if (idade >= 18) {
+                document.getElementById("resultado").textContent = "Você é maior de idade!";
+            } else {
+                document.getElementById("resultado").textContent = "Você não é maior de idade.";
+            }
+        }
+    </script>
+</body>
+</html>

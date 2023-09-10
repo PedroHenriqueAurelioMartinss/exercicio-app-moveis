@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Média</title>
+</head>
+<body>
+    <h1>Calculadora de Média</h1>
+    <p>Informe as 3 notas do aluno:</p>
+    <label for="nota1">Nota 1:</label>
+    <input type="number" id="nota1" placeholder="Nota 1">
+    <br>
+    <label for="nota2">Nota 2:</label>
+    <input type="number" id="nota2" placeholder="Nota 2">
+    <br>
+    <label for="nota3">Nota 3:</label>
+    <input type="number" id="nota3" placeholder="Nota 3">
+    <br>
+    <button onclick="calcularMedia()">Calcular Média</button>
+    <button onclick="limparCampos()">Limpar</button>
+    <p>A média das notas é: <span id="resultado"></span></p>
+
+    <script>
+        function calcularMedia() {
+            // Obtenha os valores das notas
+            var nota1 = parseFloat(document.getElementById('nota1').value);
+            var nota2 = parseFloat(document.getElementById('nota2').value);
+            var nota3 = parseFloat(document.getElementById('nota3').value);
+
+            // Verifique se os valores são números válidos
+            if (!isNaN(nota1) && !isNaN(nota2) && !isNaN(nota3)) {
+                // Calcule a média
+                var media = (nota1 + nota2 + nota3) / 3;
+
+                // Exiba o resultado na página
+                document.getElementById('resultado').textContent = media.toFixed(2); // Exibe a média com duas casas decimais
+            } else {
+                // Se algum valor não for válido, exiba uma mensagem de erro
+                document.getElementById('resultado').textContent = 'Por favor, insira notas válidas.';
+            }
+        }
+
+        function limparCampos() {
+            // Limpe os campos de entrada e o resultado
+            document.getElementById('nota1').value = '';
+            document.getElementById('nota2').value = '';
+            document.getElementById('nota3').value = '';
+            document.getElementById('resultado').textContent = '';
+        }
+    </script>
+</body>
+</html>

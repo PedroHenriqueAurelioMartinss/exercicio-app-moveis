@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            color: red;
+            margin-bottom: 10px;
+        }
+
+        .completed {
+            color: green;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <input type="text" id="taskInput" placeholder="Digite uma tarefa e pressione Enter">
+    <button onclick="addTask()">Adicionar</button>
+    <ul id="taskList">
+    </ul>
+
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById("taskInput");
+            const taskText = taskInput.value.trim();
+            if (taskText !== "") {
+                const taskList = document.getElementById("taskList");
+                const listItem = document.createElement("li");
+                listItem.textContent = taskText;
+
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Excluir";
+                deleteButton.onclick = function() {
+                    listItem.remove();
+                };
+
+                listItem.appendChild(deleteButton);
+                listItem.onclick = function() {
+                    listItem.classList.toggle("completed");
+                };
+
+                taskList.appendChild(listItem);
+                taskInput.value = "";
+            }
+        }
+
+        const inputField = document.getElementById("taskInput");
+        inputField.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                addTask();
+            }
+        });
+    </script>
+</body>
+</html>
